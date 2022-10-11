@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmarisContabil.WebApi", "Am
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmarisContabil.UnitTests", "..\tests\AmarisContabil.UnitTests\AmarisContabil.UnitTests.csproj", "{713B1F0A-9FD5-49D1-85B2-9D0D75CA982C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmarisContabil.Application", "AmarisContabil.Application\AmarisContabil.Application.csproj", "{BE8A57EC-31B5-45C6-BCC3-F360F0B84FB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmarisContabil.Domain", "AmarisContabil.Domain\AmarisContabil.Domain.csproj", "{2AA2241D-65A8-4F50-8252-84B78205AE11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmarisContabil.Infrastructure", "AmarisContabil.Infrastructure\AmarisContabil.Infrastructure.csproj", "{B6D9A2AA-1D14-4A56-9A17-7B8156B6CBD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +30,17 @@ Global
 		{713B1F0A-9FD5-49D1-85B2-9D0D75CA982C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{713B1F0A-9FD5-49D1-85B2-9D0D75CA982C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{713B1F0A-9FD5-49D1-85B2-9D0D75CA982C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE8A57EC-31B5-45C6-BCC3-F360F0B84FB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE8A57EC-31B5-45C6-BCC3-F360F0B84FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE8A57EC-31B5-45C6-BCC3-F360F0B84FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE8A57EC-31B5-45C6-BCC3-F360F0B84FB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA2241D-65A8-4F50-8252-84B78205AE11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA2241D-65A8-4F50-8252-84B78205AE11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA2241D-65A8-4F50-8252-84B78205AE11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA2241D-65A8-4F50-8252-84B78205AE11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6D9A2AA-1D14-4A56-9A17-7B8156B6CBD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6D9A2AA-1D14-4A56-9A17-7B8156B6CBD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6D9A2AA-1D14-4A56-9A17-7B8156B6CBD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6D9A2AA-1D14-4A56-9A17-7B8156B6CBD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
