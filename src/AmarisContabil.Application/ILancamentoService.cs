@@ -1,6 +1,6 @@
 ﻿namespace AmarisContabil.Application
 {
-    internal interface ILancamentoService
+    public interface ILancamentoService
     {
 
     }

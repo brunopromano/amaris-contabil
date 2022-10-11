@@ -2,7 +2,7 @@
 {
     public class LancamentoDto
     {
-        public DateOnly DataHoraInsercao { get; set; }
+        public DateOnly DataLancamento { get; set; }
         public char TipoLancamento { get; set; }
         public decimal ValorBrl { get; set; }
     }

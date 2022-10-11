@@ -1,5 +1,4 @@
 ﻿using AmarisContabil.Application;
-using AmarisContabil.Domain;
 using AmarisContabil.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -8,6 +7,7 @@ using System.Threading.Tasks;
 namespace AmarisContabil.WebApi.Controllers
 {
     [ApiController]
+    [Route("/api/[controller]")]
     public class LancamentosController : Controller
     {
         private readonly LancamentoService _lancamentoService;
