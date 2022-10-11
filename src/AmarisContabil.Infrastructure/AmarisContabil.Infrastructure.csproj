@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AmarisContabil.Domain\AmarisContabil.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
