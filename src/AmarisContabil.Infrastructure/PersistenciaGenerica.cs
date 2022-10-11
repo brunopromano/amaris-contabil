@@ -6,23 +6,28 @@ public class PersistenciaGenerica : IPersistenciaGenerica
 {
     private readonly DataContext _dataContext;
 
+    public PersistenciaGenerica(DataContext dataContext)
+    {
+        _dataContext = dataContext;
+    }
+
     public void Adicionar<T>(T entity) where T : class
     {
-        throw new NotImplementedException();
+        _dataContext.Add(entity);
     }
 
     public void Atualizar<T>(T entity) where T : class
     {
-        throw new NotImplementedException();
+        _dataContext.Update(entity);
     }
 
     public void Remover<T>(T entity) where T : class
     {
-        throw new NotImplementedException();
+        _dataContext.Remove(entity);
     }
 
-    public Task<bool> SaveChangesAsync()
+    public async Task<bool> SaveChangesAsync()
     {
-        throw new NotImplementedException();
+        return await _dataContext.SaveChangesAsync() > 0;
     }
 }
