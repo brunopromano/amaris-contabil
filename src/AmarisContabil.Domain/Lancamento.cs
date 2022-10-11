@@ -6,7 +6,7 @@ public class Lancamento
 
     public DateTime DataHoraInsercao { get; set; }
     
-    public DateOnly DataLancamento { get; set; }
+    public DateTime DataLancamento { get; set; }
     
     public char TipoLancamento { get; set; }
     
