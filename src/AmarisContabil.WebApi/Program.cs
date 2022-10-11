@@ -10,8 +10,6 @@ using Microsoft.Extensions.Hosting;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<ILancamentoPersistencia, LancamentoPersistencia>();
-builder.Services.AddScoped<ILancamentoService, LancamentoService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -21,6 +19,9 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
         assembly => assembly.MigrationsAssembly(typeof(DataContext).Assembly.FullName));
 });
+
+builder.Services.AddScoped<ILancamentoPersistencia, LancamentoPersistencia>();
+builder.Services.AddScoped<ILancamentoService, LancamentoService>();
 
 var app = builder.Build();
 

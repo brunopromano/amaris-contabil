@@ -19,12 +19,14 @@ public class LancamentoService : ILancamentoService
         _mapper = config.CreateMapper();
     }
 
-	public async Task<bool> AdicionarLancamento(LancamentoDto lancamentoDto)
+	public async Task<Lancamento> AdicionarLancamento(LancamentoDto lancamentoDto)
 	{
 		Lancamento lancamento = _mapper.Map<Lancamento>(lancamentoDto);
 
         _lancamentoPersistencia.Adicionar(lancamento);
 
-        return await _lancamentoPersistencia.SaveChangesAsync();
+        await _lancamentoPersistencia.SaveChangesAsync();
+
+        return lancamento;
 	}
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AmarisContabil.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221011035836_MigrationInicial")]
+    [Migration("20221011045446_MigrationInicial")]
     partial class MigrationInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

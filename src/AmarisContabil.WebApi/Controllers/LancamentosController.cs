@@ -1,4 +1,5 @@
 ﻿using AmarisContabil.Application;
+using AmarisContabil.Domain;
 using AmarisContabil.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,9 +11,9 @@ namespace AmarisContabil.WebApi.Controllers
     [Route("/api/[controller]")]
     public class LancamentosController : Controller
     {
-        private readonly LancamentoService _lancamentoService;
+        private readonly ILancamentoService _lancamentoService;
 
-        public LancamentosController(LancamentoService lancamentoService)
+        public LancamentosController(ILancamentoService lancamentoService)
         {
             _lancamentoService = lancamentoService;
         }
@@ -22,7 +23,7 @@ namespace AmarisContabil.WebApi.Controllers
         {
             try
             {
-                bool lancamentoInserido = await _lancamentoService.AdicionarLancamento(lancamentoDto);
+                Lancamento lancamentoInserido = await _lancamentoService.AdicionarLancamento(lancamentoDto);
 
                 return Created(string.Empty, lancamentoInserido);
             }
