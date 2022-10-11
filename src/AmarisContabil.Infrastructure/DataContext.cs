@@ -9,8 +9,8 @@ namespace AmarisContabil.Infrastructure
 
         public DbSet<Lancamento> Lancamentos { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //}
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        }
     }
 }
