@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AmarisContabil.Infrastructure.Interfaces
+﻿namespace AmarisContabil.Infrastructure.Interfaces
 {
     internal interface IPersistenciaGenerica
     {
+        void Adicionar<T>(T entity) where T : class;
+        void Atualizar<T>(T entity) where T : class;
+        void Remover<T>(T entity) where T : class;
+        Task<bool> SaveChangesAsync();
     }
 }

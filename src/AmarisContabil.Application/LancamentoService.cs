@@ -1,5 +1,6 @@
 ﻿namespace AmarisContabil.Application;
-public class Class1
+
+public class LancamentoService
 {
 
 }
