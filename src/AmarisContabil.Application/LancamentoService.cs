@@ -1,19 +1,28 @@
-﻿using AmarisContabil.Domain.Dtos;
+﻿using AmarisContabil.Domain;
+using AmarisContabil.Domain.Dtos;
 using AmarisContabil.Infrastructure.Interfaces;
+using AutoMapper;
 
 namespace AmarisContabil.Application;
 
 public class LancamentoService : ILancamentoService
 {
     private readonly ILancamentoPersistencia _lancamentoPersistencia;
+    private IMapper _mapper;
 
-	public LancamentoService(ILancamentoPersistencia lancamentoPersistencia)
+    public LancamentoService(ILancamentoPersistencia lancamentoPersistencia)
 	{
 		_lancamentoPersistencia = lancamentoPersistencia;
-	}
+
+        var config = new MapperConfiguration(cfg => cfg.CreateMap<LancamentoDto, Lancamento>().ReverseMap());
+
+        _mapper = config.CreateMapper();
+    }
 
 	public void AdicionarLancamento(LancamentoDto lancamentoDto)
 	{
-		// Fazer mapeamento com automapper
+		Lancamento lancamento = _mapper.Map<Lancamento>(lancamentoDto);
+
+        _lancamentoPersistencia.Adicionar(lancamento);
 	}
 }

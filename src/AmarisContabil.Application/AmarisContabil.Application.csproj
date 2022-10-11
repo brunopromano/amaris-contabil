@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AmarisContabil.Domain\AmarisContabil.Domain.csproj" />
     <ProjectReference Include="..\AmarisContabil.Infrastructure\AmarisContabil.Infrastructure.csproj" />
   </ItemGroup>

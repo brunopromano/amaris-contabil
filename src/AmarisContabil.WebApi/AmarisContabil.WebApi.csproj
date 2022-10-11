@@ -15,8 +15,4 @@
     <ProjectReference Include="..\AmarisContabil.Application\AmarisContabil.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
