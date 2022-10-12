@@ -19,6 +19,11 @@ public class LancamentoService : ILancamentoService
         _mapper = config.CreateMapper();
     }
 
+    public List<Lancamento> ObterTodosLancamentos()
+    {
+        return _lancamentoPersistencia.ObterTodosLancamentos();
+    }
+
 	public async Task<Lancamento> AdicionarLancamento(LancamentoDto lancamentoDto)
 	{
 		Lancamento lancamento = _mapper.Map<Lancamento>(lancamentoDto);

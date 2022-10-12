@@ -1,4 +1,5 @@
-﻿using AmarisContabil.Infrastructure.Interfaces;
+﻿using AmarisContabil.Domain;
+using AmarisContabil.Infrastructure.Interfaces;
 
 namespace AmarisContabil.Infrastructure
 {
@@ -9,6 +10,13 @@ namespace AmarisContabil.Infrastructure
         public LancamentoPersistencia(DataContext dataContext) : base(dataContext)
         {
             _dataContext = dataContext;
+        }
+
+        public List<Lancamento> ObterTodosLancamentos()
+        {
+            IQueryable<Lancamento> query = _dataContext.Lancamentos;
+
+            return query.ToList();
         }
     }
 }

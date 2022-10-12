@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmarisContabil.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace AmarisContabil.Infrastructure.Interfaces
 {
     public interface ILancamentoPersistencia : IPersistenciaGenerica
     {
+        List<Lancamento> ObterTodosLancamentos();
     }
 }

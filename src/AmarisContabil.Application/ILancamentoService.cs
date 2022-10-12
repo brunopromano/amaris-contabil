@@ -6,5 +6,6 @@ namespace AmarisContabil.Application
     public interface ILancamentoService
     {
         Task<Lancamento> AdicionarLancamento(LancamentoDto lancamentoDto);
+        List<Lancamento> ObterTodosLancamentos();
     }
 }
