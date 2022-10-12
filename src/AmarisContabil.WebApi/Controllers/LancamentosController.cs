@@ -3,6 +3,7 @@ using AmarisContabil.Domain;
 using AmarisContabil.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmarisContabil.WebApi.Controllers
@@ -16,6 +17,12 @@ namespace AmarisContabil.WebApi.Controllers
         public LancamentosController(ILancamentoService lancamentoService)
         {
             _lancamentoService = lancamentoService;
+        }
+
+        [HttpGet]
+        public List<Lancamento> ObterTodosLancamentos()
+        {
+            return _lancamentoService.ObterTodosLancamentos();
         }
 
         [HttpPost]
