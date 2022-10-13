@@ -23,6 +23,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddScoped<ILancamentoPersistencia, LancamentoPersistencia>();
 builder.Services.AddScoped<ILancamentoService, LancamentoService>();
+builder.Services.AddScoped<IRelatorioService, RelatorioService>();
 
 var app = builder.Build();
 

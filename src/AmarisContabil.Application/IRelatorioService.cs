@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AmarisContabil.Application
 {
-    internal interface IRelatorioService
+    public interface IRelatorioService
     {
     }
 }

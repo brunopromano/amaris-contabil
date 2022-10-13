@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AmarisContabil.Application
 {
-    internal class RelatorioService
+    public class RelatorioService : IRelatorioService
     {
     }
 }
