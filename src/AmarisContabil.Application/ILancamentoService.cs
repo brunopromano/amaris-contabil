@@ -5,7 +5,9 @@ namespace AmarisContabil.Application
 {
     public interface ILancamentoService
     {
-        Task<Lancamento> AdicionarLancamento(LancamentoDto lancamentoDto);
+        Lancamento ObterLancamentoPorId(int idLancamento);
         List<Lancamento> ObterTodosLancamentos();
+        Task<Lancamento> AdicionarLancamento(LancamentoDto lancamentoDto);
+        Task<bool> ExcluirLancamento(int idLancamento);
     }
 }

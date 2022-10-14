@@ -9,6 +9,7 @@ namespace AmarisContabil.Infrastructure.Interfaces
 {
     public interface ILancamentoPersistencia : IPersistenciaGenerica
     {
+        Lancamento ObterLancamentoPorId(int idLancamento);
         List<Lancamento> ObterTodosLancamentos();
     }
 }

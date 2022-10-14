@@ -19,6 +19,11 @@ public class LancamentoService : ILancamentoService
         _mapper = config.CreateMapper();
     }
 
+    public Lancamento ObterLancamentoPorId(int idLancamento)
+    {
+        return _lancamentoPersistencia.ObterLancamentoPorId(idLancamento);
+    }
+
     public List<Lancamento> ObterTodosLancamentos()
     {
         return _lancamentoPersistencia.ObterTodosLancamentos();
@@ -34,4 +39,13 @@ public class LancamentoService : ILancamentoService
 
         return lancamento;
 	}
+
+    public async Task<bool> ExcluirLancamento(int idLancamento)
+    {
+        Lancamento lancamento = _lancamentoPersistencia.ObterLancamentoPorId(idLancamento);
+
+        _lancamentoPersistencia.Remover(lancamento);
+
+        return await _lancamentoPersistencia.SaveChangesAsync();
+    }
 }

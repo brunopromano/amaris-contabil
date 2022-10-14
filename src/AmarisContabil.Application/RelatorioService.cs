@@ -8,5 +8,10 @@ namespace AmarisContabil.Application
 {
     public class RelatorioService : IRelatorioService
     {
+
+        public void GerarSaldoConsolidadoPorDia()
+        {
+
+        }
     }
 }

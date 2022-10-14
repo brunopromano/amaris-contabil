@@ -3,7 +3,6 @@ using AmarisContabil.Domain;
 using AmarisContabil.Domain.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AmarisContabil.WebApi.Controllers
@@ -20,9 +19,35 @@ namespace AmarisContabil.WebApi.Controllers
         }
 
         [HttpGet]
-        public List<Lancamento> ObterTodosLancamentos()
+        [Route("{idLancamento:int}")]
+        public IActionResult ObterLancamentoPorId(int idLancamento)
         {
-            return _lancamentoService.ObterTodosLancamentos();
+            try
+            {
+                Lancamento lancamento = _lancamentoService.ObterLancamentoPorId(idLancamento);
+
+                if (lancamento != null)
+                    return Ok(lancamento);
+
+                return NotFound($"Não foi encontrado o Lançamento com o ID {idLancamento}");
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        public IActionResult ObterTodosLancamentos()
+        {
+            try
+            {
+                return Ok(_lancamentoService.ObterTodosLancamentos());
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
         }
 
         [HttpPost]
@@ -34,9 +59,28 @@ namespace AmarisContabil.WebApi.Controllers
 
                 return Created(string.Empty, lancamentoInserido);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return BadRequest("Não foi possível adicionar o lançamento!");
+            }
+        }
+
+        [HttpDelete]
+        [Route("{idLancamento:int}")]
+        public IActionResult ExcluirLancamento(int idLancamento)
+        {
+            try
+            {
+                bool lancamentoExcluido = _lancamentoService.ExcluirLancamento(idLancamento).Result;
+
+                if (lancamentoExcluido)
+                    return Ok();
+
+                return NotFound();
+            }
+            catch (Exception)
+            {
+                return BadRequest();
             }
         }
     }
