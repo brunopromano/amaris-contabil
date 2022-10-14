@@ -65,6 +65,21 @@ namespace AmarisContabil.WebApi.Controllers
             }
         }
 
+        [HttpPut]
+        public async Task<IActionResult> EditarLancamento([FromBody] LancamentoEditadoDto lancamentoEditadoDto)
+        {
+            try
+            {
+                Lancamento lancamentoAtualizado = await _lancamentoService.AtualizarLancamento(lancamentoEditadoDto);
+
+                return Ok(lancamentoAtualizado);
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
         [HttpDelete]
         [Route("{idLancamento:int}")]
         public IActionResult ExcluirLancamento(int idLancamento)
