@@ -8,7 +8,7 @@ namespace AmarisContabil.Application
         Lancamento ObterLancamentoPorId(int idLancamento);
         List<Lancamento> ObterTodosLancamentos();
         Task<Lancamento> AdicionarLancamento(LancamentoDto lancamentoDto);
-        Task<Lancamento> AtualizarLancamento(LancamentoEditadoDto lancamentoEditadoDto);
+        Task<Lancamento> AtualizarLancamento(Lancamento ancamento);
         Task<bool> ExcluirLancamento(int idLancamento);
     }
 }

@@ -1,5 +1,7 @@
 ﻿using AmarisContabil.Domain;
 using AmarisContabil.Infrastructure.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 
 namespace AmarisContabil.Infrastructure
 {
@@ -28,9 +30,20 @@ namespace AmarisContabil.Infrastructure
             return query.ToList();
         }
 
-        //public List<SaldoDiarioConsolidado> GerarSaldoDiario()
-        //{
+        public async Task<List<SaldoDiario>> GerarSaldoDiario()
+        {
+            var dados = await _dataContext.Lancamentos
+                .GroupBy(g => g.DataLancamento)
+                .Select(diaAgrupado => new SaldoDiario
+                {
+                    DiaConsolidado = diaAgrupado.Key,
+                    TotalDebito = diaAgrupado.Sum(t => t.TipoLancamento == 'D' ? t.ValorBrl : 0),
+                    TotalCredito = diaAgrupado.Sum(t => t.TipoLancamento == 'C' ? t.ValorBrl : 0),
+                    SaldoDia = diaAgrupado.Sum(t => t.TipoLancamento == 'C' ? t.ValorBrl : -t.ValorBrl)
+                })
+                .ToListAsync();
 
-        //}
+            return dados;
+        }
     }
 }

@@ -14,10 +14,7 @@ public class LancamentoService : ILancamentoService
 	{
 		_lancamentoPersistencia = lancamentoPersistencia;
 
-        var config = new MapperConfiguration(cfg => {
-            cfg.CreateMap<LancamentoDto, Lancamento>().ReverseMap();
-            cfg.CreateMap<LancamentoEditadoDto, Lancamento>().ReverseMap();
-        });
+        var config = new MapperConfiguration(cfg => cfg.CreateMap<LancamentoDto, Lancamento>().ReverseMap());
 
         _mapper = config.CreateMapper();
     }
@@ -43,15 +40,16 @@ public class LancamentoService : ILancamentoService
         return lancamento;
 	}
 
-    public async Task<Lancamento> AtualizarLancamento(LancamentoEditadoDto lancamentoEditadoDto)
+    public async Task<Lancamento> AtualizarLancamento(Lancamento lancamentoEditado)
     {
-        Lancamento lancamento = _mapper.Map<Lancamento>(lancamentoEditadoDto);
+        _lancamentoPersistencia.Atualizar(lancamentoEditado);
 
-        _lancamentoPersistencia.Atualizar(lancamento);
+        bool atualizadoComSucesso = await _lancamentoPersistencia.SaveChangesAsync();
 
-        await _lancamentoPersistencia.SaveChangesAsync();
-
-        return lancamento;
+        if (atualizadoComSucesso)
+            return lancamentoEditado;
+        else
+            return null;
     }
 
     public async Task<bool> ExcluirLancamento(int idLancamento)

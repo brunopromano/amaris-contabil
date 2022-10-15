@@ -1,9 +1,4 @@
 ﻿using AmarisContabil.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AmarisContabil.Infrastructure.Interfaces
 {
@@ -11,5 +6,6 @@ namespace AmarisContabil.Infrastructure.Interfaces
     {
         Lancamento ObterLancamentoPorId(int idLancamento);
         List<Lancamento> ObterTodosLancamentos();
+        Task<List<SaldoDiario>> GerarSaldoDiario();
     }
 }

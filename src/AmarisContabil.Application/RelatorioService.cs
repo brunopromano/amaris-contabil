@@ -1,17 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AmarisContabil.Domain;
+using AmarisContabil.Infrastructure.Interfaces;
 
 namespace AmarisContabil.Application
 {
     public class RelatorioService : IRelatorioService
     {
+        private readonly ILancamentoPersistencia _lancamentoPersistencia;
 
-        public void GerarSaldoConsolidadoPorDia()
+        public RelatorioService(ILancamentoPersistencia lancamentoPersistencia)
         {
+            _lancamentoPersistencia = lancamentoPersistencia;
+        }
 
+        public async Task<List<SaldoDiario>> GerarSaldoConsolidadoPorDia()
+        {
+            return await _lancamentoPersistencia.GerarSaldoDiario();
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AmarisContabil.Application;
+using AmarisContabil.Domain;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace AmarisContabil.WebApi.Controllers
 {
@@ -6,16 +9,17 @@ namespace AmarisContabil.WebApi.Controllers
     [Route("api/[controller]")]
     public class RelatorioController : Controller
     {
+        private readonly IRelatorioService _relatorioService;
 
-        public RelatorioController()
+        public RelatorioController(IRelatorioService relatorioService)
         {
-
+            _relatorioService = relatorioService;
         }
 
         [HttpGet]
-        public void ObterRelatorioConsolidadoPorDia()
+        public List<SaldoDiario> ObterRelatorioConsolidadoPorDia()
         {
-
+            return _relatorioService.GerarSaldoConsolidadoPorDia().Result;
         }
     }
 }
