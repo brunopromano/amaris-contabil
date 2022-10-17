@@ -1,0 +1,22 @@
+# Please refer https://aka.ms/HTTPSinContainer on how to setup an https developer certificate for your ASP .NET Core service.
+
+version: '3.4'
+
+services:
+  amariscontabilwebapi:
+    image: amariscontabilwebapi
+    build:
+      context: .
+      dockerfile: AmarisContabil.WebApi/Dockerfile
+    ports:
+      - 7056:5261
+    depends_on:
+      - sqlserverdb
+
+  sqlserverdb:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      - SA_PASSWORD=Bruno@123
+      - ACCEPT_EULA=Y
+    ports:
+      - 1433:1433
