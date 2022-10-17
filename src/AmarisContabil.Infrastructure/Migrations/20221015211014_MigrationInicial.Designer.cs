@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AmarisContabil.Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20221011045446_MigrationInicial")]
+    [Migration("20221015211014_MigrationInicial")]
     partial class MigrationInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,7 +43,7 @@ namespace AmarisContabil.Infrastructure.Migrations
                         .HasColumnType("nvarchar(1)");
 
                     b.Property<decimal>("ValorBrl")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,4)");
 
                     b.HasKey("Id");
 

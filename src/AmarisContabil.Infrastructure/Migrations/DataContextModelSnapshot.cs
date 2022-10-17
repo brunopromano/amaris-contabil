@@ -41,7 +41,7 @@ namespace AmarisContabil.Infrastructure.Migrations
                         .HasColumnType("nvarchar(1)");
 
                     b.Property<decimal>("ValorBrl")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(18,4)");
 
                     b.HasKey("Id");
 

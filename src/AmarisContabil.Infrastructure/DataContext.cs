@@ -11,6 +11,11 @@ namespace AmarisContabil.Infrastructure
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Lancamento>()
+                .Property(p => p.ValorBrl)
+                .HasColumnType("decimal(18,4)");
         }
     }
 }

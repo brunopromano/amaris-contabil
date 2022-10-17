@@ -1,4 +1,6 @@
-﻿namespace AmarisContabil.Domain;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace AmarisContabil.Domain;
 
 public class Lancamento
 {
@@ -10,5 +12,6 @@ public class Lancamento
     
     public char TipoLancamento { get; set; }
     
+    [Column(TypeName = "decimal(18,4)")]
     public decimal ValorBrl { get; set; }
 }
