@@ -9,8 +9,8 @@ namespace AmarisContabil.UnitTests;
 public class RelatorioServiceTest
 {
     #region Variáveis
-    private Mock<ILancamentoPersistencia> _mockLancamentoPersistencia;
-    private IRelatorioService _relatorioService;
+    private readonly Mock<ILancamentoPersistencia> _mockLancamentoPersistencia;
+    private readonly IRelatorioService _relatorioService;
     #endregion
 
 
@@ -46,11 +46,11 @@ public class RelatorioServiceTest
             }
         };
 
-        var retorno = _mockLancamentoPersistencia.Setup(x => x.GerarSaldoDiario()).Returns(Task.FromResult(listSaldoDiario));
+        _mockLancamentoPersistencia.Setup(x => x.GerarSaldoDiario()).Returns(Task.FromResult(listSaldoDiario));
 
-        var response = _relatorioService.GerarSaldoConsolidadoPorDia();
+        var retorno = _relatorioService.GerarSaldoConsolidadoPorDia();
 
-        Assert.NotNull(response);
+        Assert.NotNull(retorno);
     }
 
     [Fact]
@@ -58,11 +58,11 @@ public class RelatorioServiceTest
     {
         List<SaldoDiario>? listSaldoDiario = null;
 
-        var retorno = _mockLancamentoPersistencia.Setup(x => x.GerarSaldoDiario()).Returns(Task.FromResult(listSaldoDiario));
+        _mockLancamentoPersistencia.Setup(x => x.GerarSaldoDiario()).Returns(Task.FromResult(listSaldoDiario));
 
-        var response = _relatorioService.GerarSaldoConsolidadoPorDia();
+        var retorno = _relatorioService.GerarSaldoConsolidadoPorDia();
 
-        Assert.Null(response.Result);
+        Assert.Null(retorno.Result);
 
     }
 
