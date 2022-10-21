@@ -12,7 +12,7 @@ Projeto criado em .Net 6
 
 ### Executando a Api e Migrations
 
-*Importante*: antes de iniciar a compilação verifique a string de conexão no arquivo src/AmarisContabil.WebApi\appsettings.json, em DefaultConnection.  
+*Importante*: antes de iniciar a compilação verifique a string de conexão no arquivo src\AmarisContabil.WebApi\appsettings.json, em DefaultConnection. Existem 2 strings: uma utilizada para executar localmente e outra para executar com Docker (existem comentários indicando qual usar para cada situação).  
 
 1) Abra um terminal e aponte para a pasta `src`:  
 `$ cd src`  
