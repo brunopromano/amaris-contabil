@@ -48,6 +48,8 @@ Para criar e subir o container basta apenas:
 `$ docker compose up -d --build`
 3) Verifique a documentação da Api em <http://localhost:7056/swagger/index.html>
 
+Obs.: Para visualizar o arquivo OpenAPI gerado pelo Swagger (JSON): <ttp://localhost:7056/swagger/v1/swagger.json>
+
 ## Testando a solução
 
 Para testar a solução abra o termnial, vá na raiz do projeto e entre com o comando:  
