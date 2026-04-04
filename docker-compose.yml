@@ -9,7 +9,7 @@ services:
       ACCEPT_EULA: "Y"
       MSSQL_PID: "Express"
     ports:
-      - "1433:1433"
+      - "1434:1433"
     volumes:
       - sqlserver_data:/var/opt/mssql
     healthcheck:
@@ -29,6 +29,8 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ConnectionStrings__DefaultConnection=Data Source=sqlserverdb;Initial Catalog=AmarisContabil;Trusted_Connection=False;User ID=sa;Password=Bruno@123
+    volumes:
+      - ./logs:/app/logs
     depends_on:
       sqlserverdb:
         condition: service_healthy
