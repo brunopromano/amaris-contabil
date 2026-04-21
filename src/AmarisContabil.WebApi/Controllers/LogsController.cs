@@ -96,7 +96,11 @@ namespace AmarisContabil.WebApi.Controllers
             if (!Directory.Exists(_logDirectory))
                 return null;
 
-            var files = Directory.GetFiles(_logDirectory, _logFilePrefix + "*.log");
+            // Serilog rolling files: "amaris-contabil-20260421.log"
+            // Non-rolling / first run: "amaris-contabil.log"
+            // Trim trailing '-' so the glob "amaris-contabil*.log" matches both.
+            var searchPrefix = _logFilePrefix.TrimEnd('-');
+            var files = Directory.GetFiles(_logDirectory, searchPrefix + "*.log");
             return files.OrderByDescending(f => f).FirstOrDefault();
         }
 
