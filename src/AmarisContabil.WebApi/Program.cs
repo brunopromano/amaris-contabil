@@ -14,6 +14,7 @@ builder.Host.UseSerilog((ctx, services, config) =>
         .MinimumLevel.Information()
         .MinimumLevel.Override("Microsoft.AspNetCore", Serilog.Events.LogEventLevel.Warning)
         .MinimumLevel.Override("Microsoft.EntityFrameworkCore", Serilog.Events.LogEventLevel.Warning)
+        .MinimumLevel.Override("Microsoft.EntityFrameworkCore.Database.Connection", Serilog.Events.LogEventLevel.Information)
         .MinimumLevel.Override("System", Serilog.Events.LogEventLevel.Warning)
         .WriteTo.Console(outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {Message:lj}{NewLine}{Exception}")
         .WriteTo.File(
